@@ -13,6 +13,7 @@
 		895C13A52619DEB7006ED61D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895C13A42619DEB7006ED61D /* Preview Assets.xcassets */; };
 		895C13A72619DEB7006ED61D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C13A62619DEB7006ED61D /* Persistence.swift */; };
 		895C13AA2619DEB7006ED61D /* DreamsStepByStep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 895C13A82619DEB7006ED61D /* DreamsStepByStep.xcdatamodeld */; };
+		895C13B42619EE81006ED61D /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C13B32619EE81006ED61D /* Global.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		895C13A62619DEB7006ED61D /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		895C13A92619DEB7006ED61D /* DreamsStepByStep.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DreamsStepByStep.xcdatamodel; sourceTree = "<group>"; };
 		895C13AB2619DEB7006ED61D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		895C13B32619EE81006ED61D /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				895C139D2619DEB1006ED61D /* DreamsStepByStepApp.swift */,
+				895C13B32619EE81006ED61D /* Global.swift */,
 				895C139F2619DEB1006ED61D /* ContentView.swift */,
 				895C13A12619DEB7006ED61D /* Assets.xcassets */,
 				895C13A62619DEB7006ED61D /* Persistence.swift */,
@@ -147,6 +150,7 @@
 				895C13AA2619DEB7006ED61D /* DreamsStepByStep.xcdatamodeld in Sources */,
 				895C13A72619DEB7006ED61D /* Persistence.swift in Sources */,
 				895C13A02619DEB1006ED61D /* ContentView.swift in Sources */,
+				895C13B42619EE81006ED61D /* Global.swift in Sources */,
 				895C139E2619DEB1006ED61D /* DreamsStepByStepApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
