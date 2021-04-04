@@ -9,19 +9,17 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    
     @State var page = 0
+    
     var body: some View {
         VStack {
-            Text("tab num is \(page)")
-            
-            TabView(selection: $page) {
-                Color.red.tag(0)
-                Color.yellow.tag(1)
-                Color.green.tag(2)
-                Color.blue.tag(3)
-                Text("Tab Content \(page)").tag(4)
+            PagerView(pageCount: 4, currentIndex: $page) {
+                Color.red
+                Color.yellow
+                Color.green
+                Color.blue
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
             MainTabBar(page: $page)
         }

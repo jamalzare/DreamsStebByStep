@@ -14,6 +14,7 @@
 		895C13A72619DEB7006ED61D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C13A62619DEB7006ED61D /* Persistence.swift */; };
 		895C13AA2619DEB7006ED61D /* DreamsStepByStep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 895C13A82619DEB7006ED61D /* DreamsStepByStep.xcdatamodeld */; };
 		895C13B42619EE81006ED61D /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C13B32619EE81006ED61D /* Global.swift */; };
+		89B407002619F562004E3F8C /* PagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B406FF2619F562004E3F8C /* PagerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		895C13A92619DEB7006ED61D /* DreamsStepByStep.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DreamsStepByStep.xcdatamodel; sourceTree = "<group>"; };
 		895C13AB2619DEB7006ED61D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		895C13B32619EE81006ED61D /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		89B406FF2619F562004E3F8C /* PagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		895C139C2619DEB0006ED61D /* DreamsStepByStep */ = {
 			isa = PBXGroup;
 			children = (
+				89B407022619F5ED004E3F8C /* Components */,
 				895C139D2619DEB1006ED61D /* DreamsStepByStepApp.swift */,
 				895C13B32619EE81006ED61D /* Global.swift */,
 				895C139F2619DEB1006ED61D /* ContentView.swift */,
@@ -76,6 +79,14 @@
 				895C13A42619DEB7006ED61D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		89B407022619F5ED004E3F8C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				89B406FF2619F562004E3F8C /* PagerView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +162,7 @@
 				895C13A72619DEB7006ED61D /* Persistence.swift in Sources */,
 				895C13A02619DEB1006ED61D /* ContentView.swift in Sources */,
 				895C13B42619EE81006ED61D /* Global.swift in Sources */,
+				89B407002619F562004E3F8C /* PagerView.swift in Sources */,
 				895C139E2619DEB1006ED61D /* DreamsStepByStepApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
