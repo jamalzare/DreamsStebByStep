@@ -13,18 +13,19 @@ struct ContentView: View {
     @State var page = 0
     
     var body: some View {
-        VStack {
-            PagerView(pageCount: 4, currentIndex: $page) {
-                Color.red
-                Color.yellow
-                Color.green
-                Color.blue
+        NavigationView{
+            VStack {
+                PagerView(pageCount: 4, currentIndex: $page) {
+                    TargetsTab()
+                    Color.yellow
+                    Color.green
+                    Color.blue
+                }
+                
+                MainTabBar(page: $page)
             }
             
-            MainTabBar(page: $page)
         }
-        
-        
     }
 }
 

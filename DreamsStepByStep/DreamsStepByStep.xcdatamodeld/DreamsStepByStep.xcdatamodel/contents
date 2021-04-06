@@ -1,9 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Pain" representedClassName="Pain" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="targetID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="target" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Target"/>
+    </entity>
+    <entity name="Reason" representedClassName="Reason" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="targetID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="target" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Target"/>
+    </entity>
+    <entity name="Step" representedClassName="Step" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="feeling" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="targetID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="target" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Target"/>
+        <relationship name="tip" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Tips"/>
+    </entity>
+    <entity name="Target" representedClassName="Target" syncable="YES" codeGenerationType="class">
+        <attribute name="color" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="order" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="pain" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Pain"/>
+        <relationship name="reason" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Reason"/>
+        <relationship name="steps" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Step"/>
+        <relationship name="tips" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Tips"/>
+    </entity>
+    <entity name="Tips" representedClassName="Tips" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isPined" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="stepID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="targetID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="step" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Step"/>
+        <relationship name="target" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Target"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="Reason" positionX="-54" positionY="-9" width="128" height="104"/>
+        <element name="Step" positionX="-36" positionY="9" width="128" height="149"/>
+        <element name="Target" positionX="-18" positionY="27" width="128" height="149"/>
+        <element name="Pain" positionX="0" positionY="45" width="128" height="104"/>
+        <element name="Tips" positionX="18" positionY="63" width="128" height="164"/>
     </elements>
 </model>
