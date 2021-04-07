@@ -11,22 +11,43 @@ import CoreData
 struct ContentView: View {
     
     @State var page = 0
+    @State private var offset: CGFloat = -1000
     
     var body: some View {
         NavigationView{
-            VStack {
-                PagerView(pageCount: 4, currentIndex: $page) {
-                    TargetsTab()
-                    TipsTap()
-                    Color.green
-                    Color.blue
+            ZStack{
+                Color.white.edgesIgnoringSafeArea(.all)
+                
+                VStack(spacing: 0){
+                    ZStack{
+                        PagerView(pageCount: 4, currentIndex: $page) {
+                            TargetsTab()
+                            TipsTap()
+                            GuidesTab()
+                            Color.blue
+                        }
+                        
+                        SettingView().offset(x: offset)
+                            .animation(.spring())
+                        
+                        VStack(spacing: 0){
+                            SettingButton(action: {
+                                self.offset = self.offset == 0 ? -1000: 0
+                            })
+                            Spacer()
+                        }
+                    }
+                    MainTabBar(page: $page)
+                    
                 }
                 
-                MainTabBar(page: $page)
+                
             }
-            
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
     }
+    
 }
 
 struct MainTabBar : View {
@@ -81,5 +102,23 @@ struct MainTabBarItem : View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct SettingButton: View {
+    var action: () -> Void
+    var body: some View {
+        HStack{
+            Spacer()
+            Button(action: action){
+                Image(systemName: "gear")
+                    .padding(10)
+                    .background(Color.white)
+                    .foregroundColor(Color.black.opacity(0.5))
+                    .font(Font.system(size: 25, weight: .heavy))
+                    .clipShape(Circle())
+                    .shadow(radius: 1)
+            }
+        }
     }
 }

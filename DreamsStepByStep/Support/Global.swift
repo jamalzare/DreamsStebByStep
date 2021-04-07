@@ -115,6 +115,7 @@ struct titleView: View {
                 .padding(.horizontal)
             Spacer()
         }
+        .padding(4)
         .background(Color.white)
     }
 }

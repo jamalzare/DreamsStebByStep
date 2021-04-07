@@ -24,6 +24,7 @@ struct TargetDetailView: View {
     var body: some View {
         
         VStack{
+            AppJustForSpacing()
             TargetDetailHeader(title: "\(target.title!)")
             
             PagerView(pageCount: 4, currentIndex: $currentPage){
@@ -393,12 +394,12 @@ struct TipsList: View {
             }
         }
             
-//        .sheet(isPresented: $showAddView){
-//            AddTipsView(target: self.target, tip: self.selected,
-//                        onDismiss: { self.tipsCount = self.tips.count},
-//                        showPining: true)
-//                .environment(\.managedObjectContext, self.moc)
-//        }
+        .sheet(isPresented: $showAddView){
+            AddTipsView(target: self.target, tip: self.selected,
+                        onDismiss: { self.tipsCount = self.tips.count},
+                        showPining: true)
+                .environment(\.managedObjectContext, self.moc)
+        }
         
     }
 }

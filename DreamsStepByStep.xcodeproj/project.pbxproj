@@ -23,6 +23,9 @@
 		89C4ED92261C867E00C953DA /* TargetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4ED91261C867E00C953DA /* TargetDetailView.swift */; };
 		89C4ED96261C872B00C953DA /* AddStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4ED95261C872B00C953DA /* AddStepView.swift */; };
 		89C4ED9A261C877F00C953DA /* LongTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4ED99261C877F00C953DA /* LongTextView.swift */; };
+		89C7DB2E261E01300036E795 /* GuidsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C7DB2D261E01300036E795 /* GuidsTab.swift */; };
+		89C7DB31261E01CC0036E795 /* Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C7DB30261E01CC0036E795 /* Guide.swift */; };
+		89C7DB34261E03930036E795 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C7DB33261E03930036E795 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		89C4ED91261C867E00C953DA /* TargetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetDetailView.swift; sourceTree = "<group>"; };
 		89C4ED95261C872B00C953DA /* AddStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStepView.swift; sourceTree = "<group>"; };
 		89C4ED99261C877F00C953DA /* LongTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongTextView.swift; sourceTree = "<group>"; };
+		89C7DB2D261E01300036E795 /* GuidsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidsTab.swift; sourceTree = "<group>"; };
+		89C7DB30261E01CC0036E795 /* Guide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guide.swift; sourceTree = "<group>"; };
+		89C7DB33261E03930036E795 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 				89C4ED88261C849800C953DA /* DefinedColors.swift */,
 				89C4ED8B261C85BF00C953DA /* Extensions.swift */,
 				895C13B32619EE81006ED61D /* Global.swift */,
+				89C7DB30261E01CC0036E795 /* Guide.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -114,6 +121,8 @@
 			children = (
 				89C4ED82261C773000C953DA /* TargetsTab.swift */,
 				893B812C261D731300FB6AF0 /* TipsTap.swift */,
+				89C7DB2D261E01300036E795 /* GuidsTab.swift */,
+				89C7DB33261E03930036E795 /* SettingsView.swift */,
 			);
 			path = MainTabs;
 			sourceTree = "<group>";
@@ -210,7 +219,10 @@
 				895C13A72619DEB7006ED61D /* Persistence.swift in Sources */,
 				895C13A02619DEB1006ED61D /* ContentView.swift in Sources */,
 				895C13B42619EE81006ED61D /* Global.swift in Sources */,
+				89C7DB31261E01CC0036E795 /* Guide.swift in Sources */,
+				89C7DB34261E03930036E795 /* SettingsView.swift in Sources */,
 				89C4ED96261C872B00C953DA /* AddStepView.swift in Sources */,
+				89C7DB2E261E01300036E795 /* GuidsTab.swift in Sources */,
 				89C4ED9A261C877F00C953DA /* LongTextView.swift in Sources */,
 				89B407002619F562004E3F8C /* PagerView.swift in Sources */,
 				895C139E2619DEB1006ED61D /* DreamsStepByStepApp.swift in Sources */,

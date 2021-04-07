@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TipsTap: View {
     @Environment(\.managedObjectContext) var moc
+
     @FetchRequest(
         entity: Tips.entity(),
         sortDescriptors: [
@@ -17,6 +18,7 @@ struct TipsTap: View {
         ]
         
     ) var tips: FetchedResults<Tips>
+    
     
     @State private var showAddView = false
     @State private var selectedTip: Tips?
