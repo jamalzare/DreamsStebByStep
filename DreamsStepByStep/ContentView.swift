@@ -17,7 +17,7 @@ struct ContentView: View {
             VStack {
                 PagerView(pageCount: 4, currentIndex: $page) {
                     TargetsTab()
-                    Color.yellow
+                    TipsTap()
                     Color.green
                     Color.blue
                 }

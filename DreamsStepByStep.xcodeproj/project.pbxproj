@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		893B812D261D731300FB6AF0 /* TipsTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893B812C261D731300FB6AF0 /* TipsTap.swift */; };
+		893B8131261D73C400FB6AF0 /* AddTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893B8130261D73C400FB6AF0 /* AddTipsView.swift */; };
 		895C139E2619DEB1006ED61D /* DreamsStepByStepApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C139D2619DEB1006ED61D /* DreamsStepByStepApp.swift */; };
 		895C13A02619DEB1006ED61D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C139F2619DEB1006ED61D /* ContentView.swift */; };
 		895C13A22619DEB7006ED61D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895C13A12619DEB7006ED61D /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		893B812C261D731300FB6AF0 /* TipsTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsTap.swift; sourceTree = "<group>"; };
+		893B8130261D73C400FB6AF0 /* AddTipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTipsView.swift; sourceTree = "<group>"; };
 		895C139A2619DEB0006ED61D /* DreamsStepByStep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamsStepByStep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C139D2619DEB1006ED61D /* DreamsStepByStepApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DreamsStepByStepApp.swift; sourceTree = "<group>"; };
 		895C139F2619DEB1006ED61D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,10 +76,10 @@
 		895C139C2619DEB0006ED61D /* DreamsStepByStep */ = {
 			isa = PBXGroup;
 			children = (
+				895C139F2619DEB1006ED61D /* ContentView.swift */,
 				89C4ED90261C866800C953DA /* Target */,
 				89C4ED81261C770500C953DA /* MainTabs */,
 				89B407022619F5ED004E3F8C /* Support */,
-				895C139F2619DEB1006ED61D /* ContentView.swift */,
 				895C13A12619DEB7006ED61D /* Assets.xcassets */,
 				895C13A62619DEB7006ED61D /* Persistence.swift */,
 				895C13AB2619DEB7006ED61D /* Info.plist */,
@@ -109,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				89C4ED82261C773000C953DA /* TargetsTab.swift */,
+				893B812C261D731300FB6AF0 /* TipsTap.swift */,
 			);
 			path = MainTabs;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			children = (
 				89C4ED91261C867E00C953DA /* TargetDetailView.swift */,
 				89C4ED95261C872B00C953DA /* AddStepView.swift */,
+				893B8130261D73C400FB6AF0 /* AddTipsView.swift */,
 			);
 			path = Target;
 			sourceTree = "<group>";
@@ -208,7 +214,9 @@
 				89C4ED9A261C877F00C953DA /* LongTextView.swift in Sources */,
 				89B407002619F562004E3F8C /* PagerView.swift in Sources */,
 				895C139E2619DEB1006ED61D /* DreamsStepByStepApp.swift in Sources */,
+				893B8131261D73C400FB6AF0 /* AddTipsView.swift in Sources */,
 				89C4ED92261C867E00C953DA /* TargetDetailView.swift in Sources */,
+				893B812D261D731300FB6AF0 /* TipsTap.swift in Sources */,
 				89C4ED83261C773000C953DA /* TargetsTab.swift in Sources */,
 				89C4ED8C261C85BF00C953DA /* Extensions.swift in Sources */,
 				89C4ED89261C849900C953DA /* DefinedColors.swift in Sources */,
