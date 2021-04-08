@@ -28,8 +28,8 @@ struct TargetsTab: View {
     private var helpText = "What Dreams Do you have? What goals do you want to achieve? what are your targets? Add Your dreams, goals, targets, desires here to work on it, TAP HERE or TAP On Plus Button (+) and in the form that will apear, type your dream title and choose a color just for beautify it and then submit it. For Edit a dream long press or long tab on that dream."
     
     var body: some View {
-        VStack(spacing:0){
-            //AppJustForSpacing()
+        
+        VStack(spacing:0) {
             titleView(title: "Dreams: \(targets.count)")
             
             if selectedTarget != nil {
@@ -52,17 +52,6 @@ struct TargetsTab: View {
                 
                 HelpView(text: helpText) {}
             }
-//            .listRowInsets(EdgeInsets())
-//            .listStyle(PlainListStyle())
-//            .listRowInsets(EdgeInsets(top: -1, leading: -1, bottom: -1, trailing: -1))
-            //.buttonStyle(NoButtonStyle())
-            .onAppear {
-                UITableView.appearance().tableFooterView = UIView()
-                UITableView.appearance().separatorColor = .clear
-                UITableView.appearance().separatorStyle = .none
-                UITableView.appearance().showsVerticalScrollIndicator = false
-                UITableView.appearance().showsHorizontalScrollIndicator = false
-       }
             
             
             AddButton{ self.presentAddView() }
@@ -143,7 +132,7 @@ struct AddTargetView: View {
     
     
     var body: some View {
-        List{
+        DynamicList {
             AppTextField(label: "Type a title for your Dream:", text: $title).padding(.top)
             ColorsView(color: $color).padding(.vertical)
             

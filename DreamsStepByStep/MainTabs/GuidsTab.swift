@@ -16,10 +16,11 @@ struct GuidesTab: View {
     
     var body: some View {
         
-        VStack{
+        VStack(spacing:0) {
+            
             titleView(title: "Guidance")
             
-            List{
+            DynamicList {
                 ForEach(guides){ guide in
                     TitleCardView(title: guide.title, text: guide.content[0].text, color: lightBlack)
                 }

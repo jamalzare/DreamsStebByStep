@@ -21,19 +21,29 @@ struct DynamicList<Content: View>: View {
         self.content = content
     }
     var body: some View {
+        
         if #available(iOS 14.0, *) {
             ScrollView {
-                LazyVStack(spacing: 0) {
+                LazyVStack {
                     self.content()
                 }.padding()
                 .buttonStyle(NoButtonStyle())
             }
-        } else {
+        }
+        
+        else {
+            
             List {
                 self.content()
             }
             .listStyle(PlainListStyle())
             .buttonStyle(NoButtonStyle())
+            
+            .onAppear {
+                UITableView.appearance().tableFooterView = UIView()
+                UITableView.appearance().separatorColor = .clear
+                UITableView.appearance().separatorStyle = .none
+            }
         }
     }
 }

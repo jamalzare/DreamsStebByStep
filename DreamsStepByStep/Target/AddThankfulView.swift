@@ -27,7 +27,7 @@ struct AddThankfulView: View {
     
     var body: some View {
         
-        List{
+        DynamicList {
             
             AppLabel(title: "What do you thankful for? ")
             

@@ -39,7 +39,7 @@ struct TargetDetailView: View {
             HStack(spacing:4){
                 
                 AppTabButton(title: "Steps", currentTab: $currentPage, index: 0, count: $stepsCount)
-                AppTabButtonB(title: "Reasons \(target.steps!.count)", currentTab: $currentPage, index: 1, count: target.reason?.count)
+                AppTabButtonB(title: "Reasons", currentTab: $currentPage, index: 1, count: target.reason?.count)
                 AppTabButton(title: "Pains", currentTab: $currentPage, index: 2, count: $painsCount)
                 AppTabButton(title: "Tips", currentTab: $currentPage, index: 3, count: $tipsCount)
             }
@@ -109,7 +109,7 @@ struct StepsList: View {
     var body: some View {
         
         VStack{
-            List{
+            DynamicList {
                 ForEach(steps, id:\.self) { step in
                     VStack{
                         StepCardView(step: step)
@@ -184,10 +184,10 @@ struct ReasonsList: View {
     var body: some View {
         
         VStack{
-            List{
+            DynamicList {
                 ForEach(reasons, id:\.self) { reason in
                     VStack{
-                        CardView(text: "\(reason.text!) order: \(reason.order) " , color: Color.green.opacity(0.15)).onTapGesture {
+                        CardView(text: "\(reason.text!) order: \(reason.order) " , color: Color.green.opacity(0.20)).onTapGesture {
                             self.editText = reason.text!
                             self.selected = reason
                             self.editMode = true
@@ -278,7 +278,7 @@ struct PainList: View {
         
         VStack{
             
-            List{
+            DynamicList {
                 ForEach(pains, id:\.self) { pain in
                     VStack{
                         CardView(text: "\(pain.text!) or: \(pain.order)", color: Color.red.opacity(0.10)).onTapGesture {
@@ -373,10 +373,10 @@ struct TipsList: View {
     var body: some View {
         
         VStack{
-            List{
+            DynamicList {
                 ForEach(tips, id:\.self) { tip in
                     VStack{
-                        CardView(text: tip.text!, color: Color(hexString: tip.color!).opacity(0.15)).onTapGesture {
+                        CardView(text: tip.text!, color: Color(hexString: tip.color!).opacity(0.20)).onTapGesture {
                             self.selected = tip
                             self.showAddView = true
                         }

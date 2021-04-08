@@ -39,7 +39,7 @@ struct AddStepView: View {
     var body: some View {
         
         VStack{
-            List {
+            DynamicList {
                 AppTextField(label: "Step Title:", text: $title, textAlignment: .leading)
                 
                 ColorsView(color: $color).padding(.top).padding(.top)
@@ -50,7 +50,7 @@ struct AddStepView: View {
                     AppSubLabel(title: "How Do You Feel: ")
                     
                     CardView(text: feeling,
-                             color: Color(hexString: color).opacity(0.15),
+                             color: Color(hexString: color).opacity(0.20),
                              metaText: " Tap To Edit").onTapGesture {
                                 self.activeSheet = .feeling
                     }
@@ -62,7 +62,7 @@ struct AddStepView: View {
                         AppLabel(title: "Tips")
                         AppSubLabel(title: "What did you learn during this Step: ")
                         CardView(text: step?.tip?.text ?? "",
-                                 color: Color(hexString: step?.tip?.color ?? color).opacity(0.15),
+                                 color: Color(hexString: step?.tip?.color ?? color).opacity(0.20),
                                  metaText: " Tap To Edit").onTapGesture {
                                     self.activeSheet = .tips
                         }

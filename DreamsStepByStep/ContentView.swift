@@ -63,7 +63,7 @@ struct MainTabBar : View {
             MainTabBarItem(currentIndex: $page, imageName: "face.dashed.fill", index: 3)
             Spacer()
         }
-        .padding(.bottom, 4)
+        .padding(.vertical, 4)
         .background(Color.white)
     }
 }

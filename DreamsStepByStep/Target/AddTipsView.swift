@@ -34,7 +34,7 @@ struct AddTipsView: View {
     
     var body: some View {
         
-        List{
+        DynamicList {
             
             AppLabel(title: "What did you learn today? ")
             

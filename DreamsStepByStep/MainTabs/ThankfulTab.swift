@@ -26,17 +26,19 @@ struct ThankfulTab: View {
     private var helpText = "What do you grateful or thnakful for? What do you appreciate in you life and why? in this tab TAP On Plus Button (+) and in the form that will apear type the things that you thankful for and describe the why you thank ful for and then select a color for beautify it then submit it."
     
     var body: some View {
-        VStack{
+        
+        VStack(spacing:0) {
+            
             titleView(title: "I am Thankful for: \(thanks.count) ")
             
-            List{
+            DynamicList {
                 
                 ForEach(thanks, id:\.self){ thank in
                     Button(action: {
                         self.selectedThank = thank
                         self.showAddView.toggle()
                     }){
-                        CardView(text: "\(thank.text!) order:\(thank.order)", color: Color(hexString: thank.color!).opacity(0.15))
+                        CardView(text: "\(thank.text!)", color: Color(hexString: thank.color!).opacity(0.20))
                     }
                 }
                 HelpView(text: helpText){}

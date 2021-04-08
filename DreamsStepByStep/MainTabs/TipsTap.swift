@@ -26,17 +26,19 @@ struct TipsTap: View {
     private var helpText = "What did you understand or learn today? What do you need review daily? Add Here Tips, Understandings, Points, Notes for Daily review, to Add Tips TAP HERE or TAP On Plus Button (+) and in the form that will Apear type the tips that you want to review daily and select a color for beautify it then submit it."
     
     var body: some View {
-        VStack{
+        
+        VStack(spacing:0) {
+            
             titleView(title: "Tips: \(tips.count) ")
             
-            List{
+            DynamicList {
                 
                 ForEach(tips, id:\.self){ tip in
                     Button(action: {
                         self.selectedTip = tip
                         self.showAddView.toggle()
                     }){
-                        CardView(text: "\(tip.text!) order:\(tip.order) pin:\(tip.isPined ? "true": "false")", color: Color(hexString: tip.color!).opacity(0.15))
+                        CardView(text: "\(tip.text!)", color: Color(hexString: tip.color!).opacity(0.20))
                     }
                 }
                 HelpView(text: helpText){}

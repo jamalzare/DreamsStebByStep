@@ -19,7 +19,7 @@ struct LongTextEditeView: View {
     @State private var text: String = ""
     
     var body: some View {
-        List{
+        DynamicList {
             
             AppLabel(title: title)
             
