@@ -23,6 +23,9 @@
 		89C4ED92261C867E00C953DA /* TargetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4ED91261C867E00C953DA /* TargetDetailView.swift */; };
 		89C4ED96261C872B00C953DA /* AddStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4ED95261C872B00C953DA /* AddStepView.swift */; };
 		89C4ED9A261C877F00C953DA /* LongTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4ED99261C877F00C953DA /* LongTextView.swift */; };
+		89C5400E261EE5050076D635 /* ThankfulTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C5400D261EE5050076D635 /* ThankfulTab.swift */; };
+		89C54011261EE7B60076D635 /* AddThankfulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C54010261EE7B60076D635 /* AddThankfulView.swift */; };
+		89C54014261EF79A0076D635 /* DynamicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C54013261EF79A0076D635 /* DynamicList.swift */; };
 		89C7DB2E261E01300036E795 /* GuidsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C7DB2D261E01300036E795 /* GuidsTab.swift */; };
 		89C7DB31261E01CC0036E795 /* Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C7DB30261E01CC0036E795 /* Guide.swift */; };
 		89C7DB34261E03930036E795 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C7DB33261E03930036E795 /* SettingsView.swift */; };
@@ -47,6 +50,9 @@
 		89C4ED91261C867E00C953DA /* TargetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetDetailView.swift; sourceTree = "<group>"; };
 		89C4ED95261C872B00C953DA /* AddStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStepView.swift; sourceTree = "<group>"; };
 		89C4ED99261C877F00C953DA /* LongTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongTextView.swift; sourceTree = "<group>"; };
+		89C5400D261EE5050076D635 /* ThankfulTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankfulTab.swift; sourceTree = "<group>"; };
+		89C54010261EE7B60076D635 /* AddThankfulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddThankfulView.swift; sourceTree = "<group>"; };
+		89C54013261EF79A0076D635 /* DynamicList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicList.swift; sourceTree = "<group>"; };
 		89C7DB2D261E01300036E795 /* GuidsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidsTab.swift; sourceTree = "<group>"; };
 		89C7DB30261E01CC0036E795 /* Guide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guide.swift; sourceTree = "<group>"; };
 		89C7DB33261E03930036E795 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -119,10 +125,11 @@
 		89C4ED81261C770500C953DA /* MainTabs */ = {
 			isa = PBXGroup;
 			children = (
+				89C7DB33261E03930036E795 /* SettingsView.swift */,
 				89C4ED82261C773000C953DA /* TargetsTab.swift */,
 				893B812C261D731300FB6AF0 /* TipsTap.swift */,
 				89C7DB2D261E01300036E795 /* GuidsTab.swift */,
-				89C7DB33261E03930036E795 /* SettingsView.swift */,
+				89C5400D261EE5050076D635 /* ThankfulTab.swift */,
 			);
 			path = MainTabs;
 			sourceTree = "<group>";
@@ -133,6 +140,7 @@
 				89C4ED91261C867E00C953DA /* TargetDetailView.swift */,
 				89C4ED95261C872B00C953DA /* AddStepView.swift */,
 				893B8130261D73C400FB6AF0 /* AddTipsView.swift */,
+				89C54010261EE7B60076D635 /* AddThankfulView.swift */,
 			);
 			path = Target;
 			sourceTree = "<group>";
@@ -140,6 +148,7 @@
 		89C4ED98261C876A00C953DA /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				89C54013261EF79A0076D635 /* DynamicList.swift */,
 				89B406FF2619F562004E3F8C /* PagerView.swift */,
 				89C4ED99261C877F00C953DA /* LongTextView.swift */,
 			);
@@ -217,12 +226,14 @@
 			files = (
 				895C13AA2619DEB7006ED61D /* DreamsStepByStep.xcdatamodeld in Sources */,
 				895C13A72619DEB7006ED61D /* Persistence.swift in Sources */,
+				89C5400E261EE5050076D635 /* ThankfulTab.swift in Sources */,
 				895C13A02619DEB1006ED61D /* ContentView.swift in Sources */,
 				895C13B42619EE81006ED61D /* Global.swift in Sources */,
 				89C7DB31261E01CC0036E795 /* Guide.swift in Sources */,
 				89C7DB34261E03930036E795 /* SettingsView.swift in Sources */,
 				89C4ED96261C872B00C953DA /* AddStepView.swift in Sources */,
 				89C7DB2E261E01300036E795 /* GuidsTab.swift in Sources */,
+				89C54014261EF79A0076D635 /* DynamicList.swift in Sources */,
 				89C4ED9A261C877F00C953DA /* LongTextView.swift in Sources */,
 				89B407002619F562004E3F8C /* PagerView.swift in Sources */,
 				895C139E2619DEB1006ED61D /* DreamsStepByStepApp.swift in Sources */,
@@ -231,6 +242,7 @@
 				893B812D261D731300FB6AF0 /* TipsTap.swift in Sources */,
 				89C4ED83261C773000C953DA /* TargetsTab.swift in Sources */,
 				89C4ED8C261C85BF00C953DA /* Extensions.swift in Sources */,
+				89C54011261EE7B60076D635 /* AddThankfulView.swift in Sources */,
 				89C4ED89261C849900C953DA /* DefinedColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

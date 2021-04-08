@@ -38,7 +38,7 @@ struct TargetsTab: View {
                                isActive: self.$showDetailView)
             }
             
-            List{
+            DynamicList {
                 ForEach(targets, id:\.self) { target in
                     VStack{
                         TargetCard(target: target)
@@ -52,7 +52,18 @@ struct TargetsTab: View {
                 
                 HelpView(text: helpText) {}
             }
-            .background(Color.red)
+//            .listRowInsets(EdgeInsets())
+//            .listStyle(PlainListStyle())
+//            .listRowInsets(EdgeInsets(top: -1, leading: -1, bottom: -1, trailing: -1))
+            //.buttonStyle(NoButtonStyle())
+            .onAppear {
+                UITableView.appearance().tableFooterView = UIView()
+                UITableView.appearance().separatorColor = .clear
+                UITableView.appearance().separatorStyle = .none
+                UITableView.appearance().showsVerticalScrollIndicator = false
+                UITableView.appearance().showsHorizontalScrollIndicator = false
+       }
+            
             
             AddButton{ self.presentAddView() }
         }

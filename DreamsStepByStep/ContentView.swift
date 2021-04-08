@@ -24,7 +24,7 @@ struct ContentView: View {
                             TargetsTab()
                             TipsTap()
                             GuidesTab()
-                            Color.blue
+                            ThankfulTab()
                         }
                         
                         SettingView().offset(x: offset)
@@ -60,7 +60,7 @@ struct MainTabBar : View {
             MainTabBarItem(currentIndex: $page, imageName: "moon.stars.fill", index: 0)
             MainTabBarItem(currentIndex: $page, imageName: "pin.fill", index: 1)
             MainTabBarItem(currentIndex: $page, imageName: "lightbulb.fill", index: 2)
-            MainTabBarItem(currentIndex: $page, imageName: "bell.fill", index: 3)
+            MainTabBarItem(currentIndex: $page, imageName: "face.dashed.fill", index: 3)
             Spacer()
         }
         .padding(.bottom, 4)
