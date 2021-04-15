@@ -200,6 +200,7 @@ struct CardView: View {
     var metaText = ""
     
     var body: some View {
+        
         (Text(text) + Text(metaText).foregroundColor(Color.yellow))
             .fontWeight(.heavy)
             .font(Font.system(size: setting.fontSize))
@@ -417,10 +418,10 @@ struct AppTextEditor: View {
                         .stroke(Color.black.opacity(0.1), lineWidth: 1))
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        return true
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        
+//        return false
+//    }
 }
 
 

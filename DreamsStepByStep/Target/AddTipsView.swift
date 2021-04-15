@@ -46,7 +46,7 @@ struct AddTipsView: View {
             
 //
             AppTextEditor(text: $text)
-                .id(text.hashValue)
+               // .id(text.hashValue)
             
             ColorsView(color: $color).padding(.top)
             

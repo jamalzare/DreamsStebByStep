@@ -187,7 +187,7 @@ struct ReasonsList: View {
             DynamicList {
                 ForEach(reasons, id:\.self) { reason in
                     VStack{
-                        CardView(text: "\(reason.text!) order: \(reason.order) " , color: Color.green.opacity(0.20)).onTapGesture {
+                        CardView(text: "\(reason.text ?? "") order: \(reason.order) " , color: Color.green.opacity(0.20)).onTapGesture {
                             self.editText = reason.text ?? ""
                             self.selected = reason
                             self.editMode = true
@@ -251,8 +251,8 @@ struct ReasonsList: View {
             try moc.save()
             editText = ""
             reasonsCount = reasons.count
-        }catch{
-            print("error")
+        }catch (let error){
+            print(error)
         }
     }
 }
@@ -281,8 +281,8 @@ struct PainList: View {
             DynamicList {
                 ForEach(pains, id:\.self) { pain in
                     VStack{
-                        CardView(text: "\(pain.text!) or: \(pain.order)", color: Color.red.opacity(0.10)).onTapGesture {
-                            self.editText = pain.text!
+                        CardView(text: "\(pain.text ?? "") or: \(pain.order)", color: Color.red.opacity(0.10)).onTapGesture {
+                            self.editText = pain.text ?? ""
                             self.selected = pain
                             self.editMode = true
                             self.showAddView = true

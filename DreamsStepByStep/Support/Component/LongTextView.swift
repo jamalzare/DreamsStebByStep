@@ -23,13 +23,14 @@ struct LongTextEditeView: View {
             
             AppLabel(title: title)
             
-            MultiLineTextField(text: $text)
-                .frame(height: 300)
-                .padding(10)
-                .overlay(RoundedRectangle(cornerRadius: 40)
-                    .stroke(Color.black.opacity(0.1), lineWidth: 1))
+//            MultiLineTextField(text: $text)
+//                .frame(height: 300)
+//                .padding(10)
+//                .overlay(RoundedRectangle(cornerRadius: 40)
+//                    .stroke(Color.black.opacity(0.1), lineWidth: 1))
+//                .id(title.hashValue)
+            AppTextEditor(text: $text)
                 .id(title.hashValue)
-            
             HStack{
                 Spacer()
                 AppButton(title: "Done"){ self.done() }
