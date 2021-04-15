@@ -38,12 +38,15 @@ struct AddTipsView: View {
             
             AppLabel(title: "What did you learn today? ")
             
-            MultiLineTextField(text: $text)
-                .frame(height: 300)
-                .padding(10)
-                .overlay(RoundedRectangle(cornerRadius: 40)
-                    .stroke(Color.black.opacity(0.1), lineWidth: 1))
+//            TextEditor(text: $text)
+//                .frame(height: 250)
+//                .padding(10)
+//                .overlay(RoundedRectangle(cornerRadius: 40)
+//                    .stroke(Color.black.opacity(0.1), lineWidth: 1))
             
+//
+            AppTextEditor(text: $text)
+                .id(text.hashValue)
             
             ColorsView(color: $color).padding(.top)
             

@@ -163,17 +163,17 @@ struct TargetDetailHeader: View {
 //    var title: String
 // //   @Binding var donate: Donate
 //    @Binding var presentMode: Bool
-//    
+//
 //    var body: some View {
 //        HStack{
 //            titleView(title: title)
-//            
+//
 //            if donate.active{
-//                
+//
 //                Button(action: {
 //                    self.presentMode.toggle()
 //                }){
-//                    
+//
 //                    Text(donate.buttonTitle)
 //                        .fontWeight(.heavy)
 //                //        .font(Font.system(size: 20))
@@ -183,13 +183,13 @@ struct TargetDetailHeader: View {
 //                        .clipShape(Capsule())
 //                        .shadow(radius: 1)
 //                        .padding(.horizontal)
-//                    
+//
 //                }
 //            }
-//            
+//
 //        }
 //        .background(Color.white)
-//        
+//
 //    }
 //}
 
@@ -243,6 +243,7 @@ struct TitleCardView: View {
         
     }
 }
+
 struct CircleButton: View {
     var icon: String
     var action = {}
@@ -261,7 +262,7 @@ struct CircleButton: View {
                 .padding(.bottom, 80)
                 .onTapGesture {
                     self.action()
-            }
+                }
             
             
         }
@@ -296,7 +297,7 @@ struct HelpView: View {
     var body: some View {
         CardView(text: text)
             .overlay(RoundedRectangle(cornerRadius: 40)
-                .stroke(Color.black.opacity(0.2), lineWidth: 0.0))
+                        .stroke(Color.black.opacity(0.2), lineWidth: 0.0))
             .padding(.bottom, 55)
             .onTapGesture { self.action() }
     }
@@ -356,7 +357,7 @@ struct AppButton: View {
             
             .onTapGesture {
                 self.action()
-        }
+            }
         
     }
 }
@@ -404,6 +405,23 @@ struct AppTextField: View {
     }
 }
 
+struct AppTextEditor: View {
+    
+    @Binding var text: String
+    var body: some View {
+        
+        TextEditor(text: $text)
+            .frame(height: 200)
+            .padding(10)
+            .overlay(RoundedRectangle(cornerRadius: 40)
+                        .stroke(Color.black.opacity(0.1), lineWidth: 1))
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        return true
+    }
+}
 
 
 struct ColorsView: View {
@@ -431,7 +449,7 @@ struct ColorsView: View {
                                 withAnimation(.spring()){
                                     self.select(color: clr)
                                 }
-                        }
+                            }
                     }
                 }.padding(4)
             }
@@ -471,7 +489,7 @@ struct AppTabButton: View {
             .padding(.bottom, 4)
             .onTapGesture {
                 self.currentTab = self.index
-        }
+            }
     }
 }
 

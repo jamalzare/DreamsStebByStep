@@ -148,7 +148,7 @@ struct StepCardView: View {
     @EnvironmentObject var setting: AppSetting
     var body: some View {
         HStack{
-            Text(step.title! + String(step.order))
+            Text(step.title!)
                 .fontWeight(.heavy)
                 .font(Font.system(size: setting.fontSize))
                 .lineLimit(10)
@@ -188,7 +188,7 @@ struct ReasonsList: View {
                 ForEach(reasons, id:\.self) { reason in
                     VStack{
                         CardView(text: "\(reason.text!) order: \(reason.order) " , color: Color.green.opacity(0.20)).onTapGesture {
-                            self.editText = reason.text!
+                            self.editText = reason.text ?? ""
                             self.selected = reason
                             self.editMode = true
                             self.showAddView = true

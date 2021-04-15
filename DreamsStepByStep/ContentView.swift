@@ -23,8 +23,8 @@ struct ContentView: View {
                         PagerView(pageCount: 4, currentIndex: $page) {
                             TargetsTab()
                             TipsTap()
-                            GuidesTab()
                             ThankfulTab()
+                            GuidesTab()
                         }
                         
                         SettingView().offset(x: offset)
@@ -59,8 +59,8 @@ struct MainTabBar : View {
             Spacer()
             MainTabBarItem(currentIndex: $page, imageName: "moon.stars.fill", index: 0)
             MainTabBarItem(currentIndex: $page, imageName: "pin.fill", index: 1)
-            MainTabBarItem(currentIndex: $page, imageName: "lightbulb.fill", index: 2)
-            MainTabBarItem(currentIndex: $page, imageName: "face.dashed.fill", index: 3)
+            MainTabBarItem(currentIndex: $page, imageName: "face.dashed.fill", index: 2)
+            MainTabBarItem(currentIndex: $page, imageName: "lightbulb.fill", index: 3)
             Spacer()
         }
         .padding(.vertical, 4)
