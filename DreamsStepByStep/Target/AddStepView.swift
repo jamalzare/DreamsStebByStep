@@ -31,6 +31,7 @@ struct AddStepView: View {
     @State private var title: String = ""
     @State private var feeling: String = ""
     @State private var tips: String = ""
+    @State private var isDone: Bool = false
     @State private var color: String = DefinedColors.colors[0]
     
     @State private var activeSheet: ActiveSheet?
@@ -40,7 +41,24 @@ struct AddStepView: View {
         
         VStack{
             DynamicList {
-                AppTextField(label: "Step Title:", text: $title, textAlignment: .leading)
+                HStack {
+                    AppTextField(label: "Step Title:", text: $title, textAlignment: .leading)
+                    
+                    if step != nil {
+                        Button(action: {
+                            isDone.toggle()
+                            update()
+                        }){
+                            Text("Done")
+                                .font(Font.system(size: 14, weight: .heavy))
+                                .foregroundColor(Color.black.opacity(0.6))
+                                .padding(10)
+                                .background(isDone ? Color(hexString: color).opacity(0.20): lightBlack)
+                                .cornerRadius(26)
+                                .lineLimit(1)
+                        }
+                    }
+                }
                 
                 ColorsView(color: $color).padding(.top).padding(.top)
                 
@@ -53,7 +71,7 @@ struct AddStepView: View {
                              color: Color(hexString: color).opacity(0.20),
                              metaText: " Tap To Edit").onTapGesture {
                                 self.activeSheet = .feeling
-                    }
+                             }
                     
                 }.padding(.top).padding(.top)
                 
@@ -65,7 +83,7 @@ struct AddStepView: View {
                                  color: Color(hexString: step?.tip?.color ?? color).opacity(0.20),
                                  metaText: " Tap To Edit").onTapGesture {
                                     self.activeSheet = .tips
-                        }
+                                 }
                         
                     }.padding(.vertical).padding(.top)
                 }
@@ -89,6 +107,7 @@ struct AddStepView: View {
                 self.color = step.color ?? ""
                 self.feeling = step.feeling ?? ""
                 self.tips = step.tip?.text ?? ""
+                self.isDone = step.isDone
             }
         }
         .sheet(item: $activeSheet){ sheet in
@@ -97,11 +116,11 @@ struct AddStepView: View {
                                   bindedText: self.$feeling,
                                   editMode: .constant(nil))
             }else{
-//                AddTipsView(target: self.target,
-//                            step: self.step,
-//                            tip: self.step?.tip,
-//                            showPining: true)
-//                    .environment(\.managedObjectContext, self.moc)
+                //                AddTipsView(target: self.target,
+                //                            step: self.step,
+                //                            tip: self.step?.tip,
+                //                            showPining: true)
+                //                    .environment(\.managedObjectContext, self.moc)
                 
             }
         }
@@ -126,12 +145,14 @@ struct AddStepView: View {
         step.color = color
         step.feeling = feeling
         step.order = Int32(newOrder)
-        
+        step.isDone = false
         step.targetID = target.id
         target.addToSteps(step)
         
         saveMoc()
     }
+    
+    
     
     
     func update(){
@@ -140,7 +161,9 @@ struct AddStepView: View {
             step.title = title
             step.color = color
             step.feeling = feeling
+            step.isDone = isDone
             saveMoc()
+            
         }
     }
     
@@ -190,7 +213,7 @@ struct PinButton: View {
             
             .onTapGesture {
                 self.on.toggle()
-        }
+            }
     }
 }
 

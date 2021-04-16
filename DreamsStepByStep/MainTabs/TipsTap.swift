@@ -15,7 +15,8 @@ struct TipsTap: View {
         entity: Tips.entity(),
         sortDescriptors: [
              NSSortDescriptor(keyPath: \Tips.order, ascending: false)
-        ]
+        ],
+        predicate: NSPredicate(format: "isPinned = true")
         
     ) var tips: FetchedResults<Tips>
     

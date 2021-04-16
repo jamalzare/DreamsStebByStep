@@ -44,7 +44,7 @@ struct TargetDetailView: View {
                 AppTabButton(title: "Tips", currentTab: $currentPage, index: 3, count: $tipsCount)
             }
             .padding(.bottom, 4)
-                
+            
             .navigationBarTitle("")
             .navigationBarHidden(true)
         }
@@ -67,20 +67,20 @@ struct AppTabButtonB: View {
     
     var body: some View {
         VStack{
-        Text(title + (selected ? ": \(count!)": ""))
-            .fontWeight(.heavy)
-            .animation(.interactiveSpring())
-            .font(Font.system(size: selected ? 18 : 10))
-            .foregroundColor(Color.black.opacity(0.5))
-            .padding(.horizontal, selected ? 17: 4)
-            .padding(6)
-            .background(selected ? Color.white: Color.black.opacity(0.05))
-            .clipShape(Capsule())
-            .shadow(radius: selected ? 1:0)
-            .animation(.spring())
-            .onTapGesture {
-                self.currentTab = self.index
-            }
+            Text(title + (selected ? ": \(count!)": ""))
+                .fontWeight(.heavy)
+                .animation(.interactiveSpring())
+                .font(Font.system(size: selected ? 18 : 10))
+                .foregroundColor(Color.black.opacity(0.5))
+                .padding(.horizontal, selected ? 17: 4)
+                .padding(6)
+                .background(selected ? Color.white: Color.black.opacity(0.05))
+                .clipShape(Capsule())
+                .shadow(radius: selected ? 1:0)
+                .animation(.spring())
+                .onTapGesture {
+                    self.currentTab = self.index
+                }
         }
     }
 }
@@ -117,7 +117,7 @@ struct StepsList: View {
                             .onTapGesture {
                                 self.editStep = step
                                 self.showAddView = true
-                        }
+                            }
                     }
                 }
                 
@@ -132,7 +132,7 @@ struct StepsList: View {
             }
         }
         .background(Color.white)
-            
+        
         .sheet(isPresented: $showAddView){
             AddStepView(step: self.$editStep,
                         newOrder: self.newOrder).environmentObject(self.target)
@@ -148,15 +148,31 @@ struct StepCardView: View {
     @EnvironmentObject var setting: AppSetting
     var body: some View {
         HStack{
-            Text(step.title!)
-                .fontWeight(.heavy)
-                .font(Font.system(size: setting.fontSize))
-                .lineLimit(10)
-                .foregroundColor(Color.black.opacity(0.6))
-                .padding(12)
-                .background(Color(hexString: step.color!).opacity(0.5))
-                .cornerRadius(40)
-                .padding(.vertical, 7)
+            HStack{
+                Text(step.title!)
+                    .fontWeight(.heavy)
+                    .font(Font.system(size: setting.fontSize))
+                    .lineLimit(10)
+                    .foregroundColor(Color.black.opacity(0.6))
+                
+                if step.isDone {
+                    Text("Done")
+                        .fontWeight(.heavy)
+                        .font(Font.system(size: setting.fontSize-4))
+                        .lineLimit(10)
+                        .foregroundColor(Color(hexString: step.color!).opacity(0.5))
+                        .padding(2)
+                        .background(Color.white)
+                        .clipShape(Capsule())
+                        
+                }
+                
+            }
+            .padding(10)
+            .background(Color(hexString: step.color!).opacity(0.5))
+            .cornerRadius(40)
+            .padding(.vertical, 7)
+            
             Spacer()
         }
         
@@ -207,7 +223,7 @@ struct ReasonsList: View {
                 self.selected = nil
                 self.showAddView = true
             }
-                
+            
             .sheet(isPresented: $showAddView){
                 LongTextEditeView(title: "Add and Edit Reason",
                                   bindedText: self.$editText,
@@ -303,7 +319,7 @@ struct PainList: View {
                 self.selected = nil
                 self.showAddView = true
             }
-                
+            
             .sheet(isPresented: $showAddView){
                 LongTextEditeView(title: "Add and Edit Pain",
                                   bindedText: self.$editText,
@@ -393,7 +409,7 @@ struct TipsList: View {
                 self.showAddView = true
             }
         }
-            
+        
         .sheet(isPresented: $showAddView){
             AddTipsView(target: self.target, tip: self.selected,
                         onDismiss: { self.tipsCount = self.tips.count},

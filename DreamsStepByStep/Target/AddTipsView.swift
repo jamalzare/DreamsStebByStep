@@ -23,7 +23,7 @@ struct AddTipsView: View {
     
     @State private var text: String = ""
     @State private var color: String = DefinedColors.colors[0]
-    @State private var isPined: Bool = true
+    @State private var isPinned: Bool = true
     
     var target: Target?
     var step: Step?
@@ -56,7 +56,7 @@ struct AddTipsView: View {
                     
                     HStack{
                         AppLabel(title: "Pin the Tips")
-                        PinButton(on: $isPined)
+                        PinButton(on: $isPinned)
                     }
                 }
             }
@@ -74,11 +74,11 @@ struct AddTipsView: View {
             Spacer()
             
         }.onAppear{
-            self.isPined = self.showPining ? false: true
+            self.isPinned = self.showPining ? false: true
             if let tip = self.tip{
                 self.text = tip.text!
                 self.color = tip.color!
-                self.isPined = tip.isPined
+                self.isPinned = tip.isPinned
             }
         }
        
@@ -96,7 +96,7 @@ struct AddTipsView: View {
         let tip = Tips(context: moc)
         tip.text = text
         tip.color = color
-        tip.isPined = isPined
+        tip.isPinned = isPinned
         tip.id = UUID()
         tip.order = (tips.map { $0.order }.max() ?? 0) + 1
         
@@ -124,7 +124,7 @@ struct AddTipsView: View {
         if let tip = tip{
             tip.text = text
             tip.color = color
-            tip.isPined = isPined
+            tip.isPinned = isPinned
             saveMoc()
         }
     }
@@ -141,7 +141,7 @@ struct AddTipsView: View {
         presentaionMode.wrappedValue.dismiss()
         text = ""
         color = DefinedColors.colors[0]
-        isPined = showPining ? false: true
+        isPinned = showPining ? false: true
         onDismiss()
     }
 }
