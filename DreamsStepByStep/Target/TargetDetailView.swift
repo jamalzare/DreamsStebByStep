@@ -29,18 +29,18 @@ struct TargetDetailView: View {
             
             PagerView(pageCount: 4, currentIndex: $currentPage){
                 
-                StepsList(stepsCount: $stepsCount)
                 ReasonsList(reasonsCount: $reasonsCount)
                 PainList(painsCount: $painsCount)
+                StepsList(stepsCount: $stepsCount)
                 TipsList(tipsCount: $tipsCount)
                 
             }
             
             HStack(spacing:4){
-                
-                AppTabButton(title: "Steps", currentTab: $currentPage, index: 0, count: $stepsCount)
-                AppTabButtonB(title: "Reasons", currentTab: $currentPage, index: 1, count: target.reason?.count)
-                AppTabButton(title: "Pains", currentTab: $currentPage, index: 2, count: $painsCount)
+               
+                AppTabButtonB(title: "Reasons", currentTab: $currentPage, index: 0, count: target.reason?.count)
+                AppTabButton(title: "Pains", currentTab: $currentPage, index: 1, count: $painsCount)
+                AppTabButton(title: "Steps", currentTab: $currentPage, index: 2, count: $stepsCount)
                 AppTabButton(title: "Tips", currentTab: $currentPage, index: 3, count: $tipsCount)
             }
             .padding(.bottom, 4)
@@ -149,7 +149,7 @@ struct StepCardView: View {
     var body: some View {
         HStack{
             HStack{
-                Text(step.title!)
+                Text(step.title ?? "")
                     .fontWeight(.heavy)
                     .font(Font.system(size: setting.fontSize))
                     .lineLimit(10)
@@ -169,7 +169,7 @@ struct StepCardView: View {
                 
             }
             .padding(10)
-            .background(Color(hexString: step.color!).opacity(0.5))
+            .background(Color(hexString: step.color ?? "").opacity(0.5))
             .cornerRadius(40)
             .padding(.vertical, 7)
             
