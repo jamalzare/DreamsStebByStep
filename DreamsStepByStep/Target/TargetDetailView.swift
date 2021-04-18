@@ -293,7 +293,7 @@ struct PainList: View {
     var body: some View {
         
         VStack{
-            
+        
             DynamicList {
                 ForEach(pains, id:\.self) { pain in
                     VStack{

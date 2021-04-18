@@ -21,7 +21,7 @@ class DefinedColors {
     
     static let indigoMDString = "3F51B5"
     
-    static let blueMDString = "3F51B5"
+    static let blueMDString = "1976D2"
     
     static let lightBlueMDString = "03A9F4"
     
@@ -54,7 +54,7 @@ class DefinedColors {
         return[
             lightBlueMDString, pinkMDString, greenMDString, yellowMDString,
             tealMDString, orangeMDString, lightGreenMDString, redMDString,
-            purpleMDString, amberMDString, cyanMDString, deepPurpleMDString,
+            purpleMDString, amberMDString, cyanMDString,
             indigoMDString, grayMDString, limeMDString, blueMDString,
             blueGrayMDString, deepOrangeMDString, brownMDString,
         ]
