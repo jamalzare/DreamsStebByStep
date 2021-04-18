@@ -115,12 +115,12 @@ struct AddStepView: View {
                 LongTextEditeView(title: "Edit your Feeling here",
                                   bindedText: self.$feeling,
                                   editMode: .constant(nil))
-            }else{
-                //                AddTipsView(target: self.target,
-                //                            step: self.step,
-                //                            tip: self.step?.tip,
-                //                            showPining: true)
-                //                    .environment(\.managedObjectContext, self.moc)
+            } else {
+                                AddTipsView(target: self.target,
+                                            step: self.step,
+                                            tip: self.step?.tip,
+                                            showPining: true)
+                                    .environment(\.managedObjectContext, self.moc)
                 
             }
         }
