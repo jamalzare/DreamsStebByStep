@@ -152,7 +152,7 @@ struct TargetDetailHeader: View {
         HStack {
             IconButton(icon: "arrow.left"){
                 self.presentationMode.wrappedValue.dismiss()
-            }.padding(.horizontal)
+            }.padding(.leading)
             titleView(title: title)
         }
         .background(Color.white)

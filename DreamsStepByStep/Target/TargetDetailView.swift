@@ -169,7 +169,7 @@ struct StepCardView: View {
                 
             }
             .padding(10)
-            .background(Color(hexString: step.color ?? "").opacity(0.5))
+            .background(Color(hexString: step.color ?? "Fa2314").opacity(0.5))
             .cornerRadius(40)
             .padding(.vertical, 7)
             
