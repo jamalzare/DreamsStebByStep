@@ -36,7 +36,7 @@ struct LongTextEditeView: View {
                 AppButton(title: "Done"){ self.done() }
                 if editMode !=  nil{
                     if editMode == true{
-                        DeleteButton { self.delete() }
+                        DeleteButtonWithAlert { self.delete() }
                     }
                 }
                 CancelButton{ self.dismiss() }

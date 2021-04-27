@@ -65,7 +65,7 @@ struct AddTipsView: View {
                 Spacer()
                 SubmitButton { self.submit() }
                 if tip != nil{
-                    DeleteButton{ self.delete() }
+                    DeleteButtonWithAlert { self.delete() }
                 }
                 CancelButton{ self.dismiss() }
                 Spacer()

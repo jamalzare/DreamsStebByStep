@@ -33,7 +33,6 @@ struct TargetDetailView: View {
                 PainList(painsCount: $painsCount)
                 StepsList(stepsCount: $stepsCount)
                 TipsList(tipsCount: $tipsCount)
-                
             }
             
             HStack(spacing:4){

@@ -105,7 +105,7 @@ struct titleView: View {
     var body: some View {
         HStack{
             Text(title).bold()
-                .fontWeight(.heavy)
+               // .fontWeight(.heavy)
                 .font(Font.system(size: AppSetting.titleFontSize))
                 .foregroundColor(blackText)
                 .lineLimit(1)
@@ -123,7 +123,7 @@ struct titleView: View {
 
 struct IconButton: View {
     let icon: String
-    var fontSize: CGFloat = 19
+    var fontSize: CGFloat = 17
     var background = lightBlack
     var shadow: CGFloat = 0
     var action: ()-> Void
@@ -144,6 +144,7 @@ struct IconButton: View {
     }
 }
 
+
 struct TargetDetailHeader: View {
     var title: String
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -154,6 +155,7 @@ struct TargetDetailHeader: View {
                 self.presentationMode.wrappedValue.dismiss()
             }.padding(.leading)
             titleView(title: title)
+            
         }
         .background(Color.white)
     }
@@ -202,7 +204,7 @@ struct CardView: View {
     var body: some View {
         
         (Text(text) + Text(metaText).foregroundColor(Color.yellow))
-            .fontWeight(.heavy)
+            //.fontWeight(.heavy)
             .font(Font.system(size: setting.fontSize))
             .foregroundColor(Color.black.opacity(0.5))
             .lineLimit(300)
@@ -347,12 +349,12 @@ struct AppButton: View {
     var body: some View {
         
         Text(title)
-            .fontWeight(.heavy)
+          //  .fontWeight(.heavy)
             .font(Font.system(size: 15))
-            .foregroundColor(blackText)
+            .foregroundColor(Color.gray)
             .padding(.vertical, 8)
             .padding(.horizontal, 12)
-            .background(Color.white)
+            .background(Color.gray.opacity(0.1))
             .clipShape(Capsule())
             .shadow(radius: 1)
             
@@ -374,6 +376,35 @@ struct DeleteButton: View {
     var action: () -> Void
     var body: some View {
         AppButton(title: "Delete", action: action)
+    }
+}
+
+struct DeleteButtonWithAlert: View {
+    
+    @State private var showAlert: Bool = false
+    var deleteAction: () -> Void
+    var cancelAction: () -> Void = {}
+    
+    var body: some View {
+        
+        AppButton(title: "Delete", action: {
+            self.showAlert = true
+        })
+        
+        .alert(isPresented: $showAlert) {
+            
+            Alert(title: Text("Are you sure?"),
+                  message: Text("Do you want to delete?"),
+                  
+                  primaryButton: .destructive(Text("Yes"), action: {
+                    self.deleteAction()
+                  }),
+                  
+                  secondaryButton: .cancel(Text("Cancel"), action: {
+                    self.cancelAction()
+                  })
+            )
+        }
     }
 }
 
@@ -418,10 +449,10 @@ struct AppTextEditor: View {
                         .stroke(Color.black.opacity(0.1), lineWidth: 1))
     }
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        
-//        return false
-//    }
+    //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    //
+    //        return false
+    //    }
 }
 
 
@@ -493,13 +524,6 @@ struct AppTabButton: View {
             }
     }
 }
-
-
-
-
-
-
-
 
 struct AppJustForSpacing: View {
     var body: some View {

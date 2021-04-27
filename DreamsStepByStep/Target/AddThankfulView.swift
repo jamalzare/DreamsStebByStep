@@ -44,7 +44,7 @@ struct AddThankfulView: View {
                 Spacer()
                 SubmitButton { self.submit() }
                 if thank != nil{
-                    DeleteButton{ self.delete() }
+                    DeleteButtonWithAlert { self.delete() }
                 }
                 CancelButton{ self.dismiss() }
                 Spacer()

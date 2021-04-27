@@ -131,6 +131,7 @@ struct AddTargetView: View {
     @State private var editMode = false
     
     
+    
     var body: some View {
         DynamicList {
             AppTextField(label: "Type a title for your Dream:", text: $title).padding(.top)
@@ -141,7 +142,7 @@ struct AddTargetView: View {
                 SubmitButton { self.submit()}
                 
                 if editMode{
-                    DeleteButton{ self.delete() }
+                    DeleteButtonWithAlert { self.delete() }
                 }
                 CancelButton{ self.getBack() }
                 Spacer()
@@ -154,6 +155,8 @@ struct AddTargetView: View {
                 self.editMode = true
             }
         }
+        
+      
     }
     
     
@@ -186,6 +189,7 @@ struct AddTargetView: View {
     }
     
     func delete(){
+        
         if let target = editTarget{
             moc.delete(target)
             mocSave()

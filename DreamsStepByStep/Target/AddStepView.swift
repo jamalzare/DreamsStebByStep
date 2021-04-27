@@ -92,7 +92,7 @@ struct AddStepView: View {
                     Spacer()
                     SubmitButton { self.submit() }
                     if step != nil{
-                        DeleteButton { self.delete() }
+                        DeleteButtonWithAlert { self.delete() }
                     }
                     CancelButton{ self.dismiss() }
                     Spacer()
