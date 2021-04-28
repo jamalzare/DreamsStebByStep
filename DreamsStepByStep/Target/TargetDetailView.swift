@@ -13,7 +13,7 @@ struct TargetDetailView: View {
     @Environment(\.managedObjectContext) var moc
     
     @State var target: Target
-    @State private var currentPage = 0
+    @State private var currentPage = 2
     
     @State private var stepsCount: Int = 0
     @State private var reasonsCount: Int = 0
@@ -29,18 +29,20 @@ struct TargetDetailView: View {
             
             PagerView(pageCount: 4, currentIndex: $currentPage){
                 
-                ReasonsList(reasonsCount: $reasonsCount)
-                PainList(painsCount: $painsCount)
-                StepsList(stepsCount: $stepsCount)
-                TipsList(tipsCount: $tipsCount)
+                ReasonsList(reasonsCount: $reasonsCount, targetID: target.id!)
+                PainList(painsCount: $painsCount, targetID: target.id!)
+                StepsList(stepsCount: $stepsCount, targetID: target.id!)
+                TipsList(tipsCount: $tipsCount, targetID: target.id!)
+               // TestList(stepsCount: $stepsCount, targetID: target.id!)
             }
             
             HStack(spacing:4){
-               
+                
                 AppTabButtonB(title: "Reasons", currentTab: $currentPage, index: 0, count: target.reason?.count)
                 AppTabButton(title: "Pains", currentTab: $currentPage, index: 1, count: $painsCount)
                 AppTabButton(title: "Steps", currentTab: $currentPage, index: 2, count: $stepsCount)
                 AppTabButton(title: "Tips", currentTab: $currentPage, index: 3, count: $tipsCount)
+             //   AppTabButton(title: "Test", currentTab: $currentPage, index: 4, count: $stepsCount)
             }
             .padding(.bottom, 4)
             
@@ -85,6 +87,7 @@ struct AppTabButtonB: View {
 }
 
 struct StepsList: View {
+    
     @Environment(\.managedObjectContext) var moc
     @EnvironmentObject var target: Target
     @Binding var stepsCount: Int
@@ -93,10 +96,16 @@ struct StepsList: View {
     @State private var showAddView: Bool = false
     @State private var editStep: Step?
     
-    var steps : [Step] {
-        return (target.steps?.allObjects as? [Step] ?? [Step]()).sorted {
-            $0.order < $1.order
-        }
+    @FetchRequest var steps: FetchedResults<Step>
+    
+    init(stepsCount: Binding<Int>, targetID: UUID) {
+        print(targetID.uuidString)
+        let id = UUID(uuidString: "9025A194-8F1A-4D0B-BAB6-1FEF71CC1540")!
+        self._stepsCount = stepsCount
+        self._steps = FetchRequest(entity: Step.entity(),
+                                   sortDescriptors: [NSSortDescriptor(keyPath: \Step.order, ascending: true)],
+                                   predicate: NSPredicate(format: "targetID == %@", targetID as CVarArg),
+                                   animation: .easeInOut)
     }
     
     var newOrder: Int{
@@ -110,14 +119,14 @@ struct StepsList: View {
         VStack{
             DynamicList {
                 ForEach(steps, id:\.self) { step in
-                    VStack{
-                        StepCardView(step: step)
-                            .id(step.title).id(step.color)
-                            .onTapGesture {
-                                self.editStep = step
-                                self.showAddView = true
-                            }
-                    }
+                    
+                    StepCardView(step: step).id(UUID())
+                        .id(step.title).id(step.color).id(step.isDone)
+                        .onTapGesture {
+                            self.editStep = step
+                            self.showAddView = true
+                        }
+                    
                 }
                 
                 HelpView(text: helpText) {}
@@ -134,7 +143,8 @@ struct StepsList: View {
         
         .sheet(isPresented: $showAddView){
             AddStepView(step: self.$editStep,
-                        newOrder: self.newOrder).environmentObject(self.target)
+                        newOrder: self.newOrder)
+                .environmentObject(self.target)
                 .environment(\.managedObjectContext, self.moc)
                 .environmentObject(self.setting)
         }
@@ -163,7 +173,7 @@ struct StepCardView: View {
                         .padding(2)
                         .background(Color.white)
                         .clipShape(Capsule())
-                        
+                    
                 }
                 
             }
@@ -180,6 +190,7 @@ struct StepCardView: View {
 }
 
 struct ReasonsList: View {
+    
     @EnvironmentObject var target: Target
     @Environment(\.managedObjectContext) var moc
     @Binding var reasonsCount: Int
@@ -190,10 +201,15 @@ struct ReasonsList: View {
     
     private let helpText = "In this section describe WHY you want to achieve this dream what will happen if this dream come true. How will you FEEL when you achieve this dream? Write down any reasons that help you achieve this dream and read them daily. To do this  TAP HERE or TAP On Plus Button (+)."
     
-    var reasons : [Reason] {
-        return (target.reason?.allObjects as? [Reason] ?? [Reason]()).sorted {
-            $0.order < $1.order
-        }
+    @FetchRequest var reasons: FetchedResults<Reason>
+    
+    init(reasonsCount: Binding<Int>, targetID: UUID) {
+        
+        self._reasonsCount = reasonsCount
+        self._reasons = FetchRequest(entity: Reason.entity(),
+                                     sortDescriptors: [NSSortDescriptor(keyPath: \Reason.order, ascending: false)],
+                                     predicate: NSPredicate(format: "targetID == %@", targetID as CVarArg),
+                                     animation: .easeInOut)
     }
     
     var body: some View {
@@ -273,6 +289,7 @@ struct ReasonsList: View {
 }
 
 struct PainList: View {
+    
     @EnvironmentObject var target: Target
     @Environment(\.managedObjectContext) var moc
     @Binding var painsCount: Int
@@ -281,10 +298,15 @@ struct PainList: View {
     @State private var editMode: Bool? = false
     @State private var selected: Pain?
     
-    var pains : [Pain] {
-        return (target.pain?.allObjects as? [Pain] ?? [Pain]()).sorted {
-            $0.order < $1.order
-        }
+    @FetchRequest var pains: FetchedResults<Pain>
+    
+    init(painsCount: Binding<Int>, targetID: UUID) {
+        
+        self._painsCount = painsCount
+        self._pains = FetchRequest(entity: Pain.entity(),
+                                   sortDescriptors: [NSSortDescriptor(keyPath: \Pain.order, ascending: false)],
+                                   predicate: NSPredicate(format: "targetID == %@", targetID as CVarArg),
+                                   animation: .easeInOut)
     }
     
     private let helpText = "What problems will you have if you do not achieve this dream?. What will bother you if you don't have this dream. Why not achieve this dream makes your life harder. Write down everything that causes you PAIN and SUFFERING if you do not achieve this dream. To do this TAP HERE or TAP On Plus Button (+)."
@@ -292,7 +314,7 @@ struct PainList: View {
     var body: some View {
         
         VStack{
-        
+            
             DynamicList {
                 ForEach(pains, id:\.self) { pain in
                     VStack{
@@ -376,10 +398,15 @@ struct TipsList: View {
     @State private var showAddView: Bool = false
     @State private var selected: Tips?
     
-    var tips : [Tips] {
-        return (target.tips?.allObjects as? [Tips] ?? [Tips]()).sorted {
-            $0.order < $1.order
-        }
+    @FetchRequest var tips: FetchedResults<Tips>
+    
+    init(tipsCount: Binding<Int>, targetID: UUID) {
+        
+        self._tipsCount = tipsCount
+        self._tips = FetchRequest(entity: Tips.entity(),
+                                  sortDescriptors: [NSSortDescriptor(keyPath: \Tips.order, ascending: false)],
+                                  predicate: NSPredicate(format: "targetID == %@", targetID as CVarArg),
+                                  animation: .easeInOut)
     }
     
     private let helpText = "This section shows you the TIPS for your actions and Steps. You can also write down the Tips, Understandings, Points, Notes that you have learned and they need to be reviewed daily and they will help you. To do this TAP HERE or TAP On Plus Button (+)."

@@ -30,10 +30,10 @@
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="order" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String"/>
-        <relationship name="pain" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Pain"/>
-        <relationship name="reason" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Reason"/>
-        <relationship name="steps" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Step"/>
-        <relationship name="tips" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Tips"/>
+        <relationship name="pain" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Pain"/>
+        <relationship name="reason" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Reason"/>
+        <relationship name="steps" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Step"/>
+        <relationship name="tips" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Tips"/>
     </entity>
     <entity name="Thankful" representedClassName="Thankful" syncable="YES" codeGenerationType="class">
         <attribute name="color" attributeType="String"/>
@@ -49,7 +49,7 @@
         <attribute name="stepID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="targetID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="text" attributeType="String"/>
-        <relationship name="step" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Step"/>
+        <relationship name="step" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Step"/>
         <relationship name="target" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Target"/>
     </entity>
     <elements>

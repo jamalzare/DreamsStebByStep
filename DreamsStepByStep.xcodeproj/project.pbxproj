@@ -29,6 +29,7 @@
 		89C7DB2E261E01300036E795 /* GuidsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C7DB2D261E01300036E795 /* GuidsTab.swift */; };
 		89C7DB31261E01CC0036E795 /* Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C7DB30261E01CC0036E795 /* Guide.swift */; };
 		89C7DB34261E03930036E795 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C7DB33261E03930036E795 /* SettingsView.swift */; };
+		89CF665E2638D9D700936ED1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CF665D2638D9D700936ED1 /* Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		89C7DB2D261E01300036E795 /* GuidsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidsTab.swift; sourceTree = "<group>"; };
 		89C7DB30261E01CC0036E795 /* Guide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guide.swift; sourceTree = "<group>"; };
 		89C7DB33261E03930036E795 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		89CF665D2638D9D700936ED1 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		895C139C2619DEB0006ED61D /* DreamsStepByStep */ = {
 			isa = PBXGroup;
 			children = (
+				89CF665D2638D9D700936ED1 /* Test.swift */,
 				895C139F2619DEB1006ED61D /* ContentView.swift */,
 				89C4ED90261C866800C953DA /* Target */,
 				89C4ED81261C770500C953DA /* MainTabs */,
@@ -241,6 +244,7 @@
 				89C4ED92261C867E00C953DA /* TargetDetailView.swift in Sources */,
 				893B812D261D731300FB6AF0 /* TipsTap.swift in Sources */,
 				89C4ED83261C773000C953DA /* TargetsTab.swift in Sources */,
+				89CF665E2638D9D700936ED1 /* Test.swift in Sources */,
 				89C4ED8C261C85BF00C953DA /* Extensions.swift in Sources */,
 				89C54011261EE7B60076D635 /* AddThankfulView.swift in Sources */,
 				89C4ED89261C849900C953DA /* DefinedColors.swift in Sources */,
