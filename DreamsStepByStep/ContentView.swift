@@ -20,10 +20,11 @@ struct ContentView: View {
                 
                 VStack(spacing: 0){
                     ZStack{
-                        PagerView(pageCount: 4, currentIndex: $page) {
+                        PagerView(pageCount: 5, currentIndex: $page) {
                             TargetsTab()
                             TipsTap()
                             ThankfulTab()
+                            TodayTab()
                             GuidesTab()
                         }
                         
@@ -60,11 +61,13 @@ struct MainTabBar : View {
             MainTabBarItem(currentIndex: $page, imageName: "moon.stars.fill", index: 0)
             MainTabBarItem(currentIndex: $page, imageName: "pin.fill", index: 1)
             MainTabBarItem(currentIndex: $page, imageName: "face.dashed.fill", index: 2)
-            MainTabBarItem(currentIndex: $page, imageName: "lightbulb.fill", index: 3)
+            MainTabBarItem(currentIndex: $page, imageName: "sun.max.fill", index: 3)
+            MainTabBarItem(currentIndex: $page, imageName: "lightbulb.fill", index: 4)
+            
             Spacer()
         }
         .padding(.vertical, 4)
-        .background(Color.white)
+        .background(Color.white.opacity(0.1))
     }
 }
 
@@ -90,10 +93,10 @@ struct MainTabBarItem : View {
                 .padding()
                 .background(selected ? Color.white: lightBlack)
                 .background(Color.white)
-                .font(Font.system(size: selected ? 25: 15))
+                .font(Font.system(size: selected ? 22: 15))
                 .clipShape(Circle())
                 .shadow(radius: selected ? 1: 0)
-                .padding(.horizontal, selected ? 25: 5)
+                .padding(.horizontal, selected ? 15: 3)
         }
         .animation(.spring())
     }

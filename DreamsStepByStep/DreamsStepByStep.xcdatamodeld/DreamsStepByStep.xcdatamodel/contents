@@ -52,12 +52,19 @@
         <relationship name="step" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Step"/>
         <relationship name="target" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Target"/>
     </entity>
+    <entity name="Today" representedClassName="Today" syncable="YES" codeGenerationType="class">
+        <attribute name="color" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="order" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="text" attributeType="String"/>
+    </entity>
     <elements>
-        <element name="Pain" positionX="0" positionY="45" width="128" height="104"/>
-        <element name="Reason" positionX="-54" positionY="-9" width="128" height="104"/>
-        <element name="Step" positionX="-36" positionY="9" width="128" height="164"/>
-        <element name="Target" positionX="-18" positionY="27" width="128" height="149"/>
-        <element name="Thankful" positionX="-18" positionY="99" width="128" height="89"/>
-        <element name="Tips" positionX="18" positionY="63" width="128" height="164"/>
+        <element name="Pain" positionX="240.6326904296875" positionY="36.34982299804688" width="128" height="104"/>
+        <element name="Reason" positionX="50.3814697265625" positionY="-846.2122497558594" width="128" height="104"/>
+        <element name="Step" positionX="47.552001953125" positionY="255.5453796386719" width="128" height="164"/>
+        <element name="Target" positionX="-262.4407348632812" positionY="-137.2764129638672" width="128" height="149"/>
+        <element name="Thankful" positionX="-435.863037109375" positionY="265.7540588378906" width="128" height="89"/>
+        <element name="Tips" positionX="-283.4314575195312" positionY="314.6236572265625" width="128" height="164"/>
+        <element name="Today" positionX="-500.1002197265625" positionY="113.6095581054688" width="128" height="103"/>
     </elements>
 </model>
