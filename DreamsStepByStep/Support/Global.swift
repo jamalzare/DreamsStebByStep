@@ -209,9 +209,10 @@ struct CardView: View {
             .foregroundColor(Color.black.opacity(0.5))
             .lineLimit(300)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(12)
+            .padding(16)
             .background(color)
             .cornerRadius(40)
+        
     }
 }
 

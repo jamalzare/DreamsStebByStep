@@ -18,6 +18,8 @@
 		895C13A72619DEB7006ED61D /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C13A62619DEB7006ED61D /* Persistence.swift */; };
 		895C13AA2619DEB7006ED61D /* DreamsStepByStep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 895C13A82619DEB7006ED61D /* DreamsStepByStep.xcdatamodeld */; };
 		895C13B42619EE81006ED61D /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C13B32619EE81006ED61D /* Global.swift */; };
+		8971BD5426EDD08D001AF72C /* DesiresTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8971BD5326EDD08D001AF72C /* DesiresTab.swift */; };
+		8971BD5726EDD188001AF72C /* AddDesireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8971BD5626EDD188001AF72C /* AddDesireView.swift */; };
 		89B407002619F562004E3F8C /* PagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B406FF2619F562004E3F8C /* PagerView.swift */; };
 		89C4ED83261C773000C953DA /* TargetsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4ED82261C773000C953DA /* TargetsTab.swift */; };
 		89C4ED89261C849900C953DA /* DefinedColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4ED88261C849800C953DA /* DefinedColors.swift */; };
@@ -48,6 +50,8 @@
 		895C13A92619DEB7006ED61D /* DreamsStepByStep.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DreamsStepByStep.xcdatamodel; sourceTree = "<group>"; };
 		895C13AB2619DEB7006ED61D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		895C13B32619EE81006ED61D /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		8971BD5326EDD08D001AF72C /* DesiresTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesiresTab.swift; sourceTree = "<group>"; };
+		8971BD5626EDD188001AF72C /* AddDesireView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDesireView.swift; sourceTree = "<group>"; };
 		89B406FF2619F562004E3F8C /* PagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagerView.swift; sourceTree = "<group>"; };
 		89C4ED82261C773000C953DA /* TargetsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetsTab.swift; sourceTree = "<group>"; };
 		89C4ED88261C849800C953DA /* DefinedColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefinedColors.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				89C7DB2D261E01300036E795 /* GuidsTab.swift */,
 				89C5400D261EE5050076D635 /* ThankfulTab.swift */,
 				892A67B126E5017800DB4D9A /* TodayTab.swift */,
+				8971BD5326EDD08D001AF72C /* DesiresTab.swift */,
 			);
 			path = MainTabs;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 				893B8130261D73C400FB6AF0 /* AddTipsView.swift */,
 				89C54010261EE7B60076D635 /* AddThankfulView.swift */,
 				892A67B426E502BE00DB4D9A /* AddTodayView.swift */,
+				8971BD5626EDD188001AF72C /* AddDesireView.swift */,
 			);
 			path = Target;
 			sourceTree = "<group>";
@@ -235,6 +241,7 @@
 			files = (
 				895C13AA2619DEB7006ED61D /* DreamsStepByStep.xcdatamodeld in Sources */,
 				895C13A72619DEB7006ED61D /* Persistence.swift in Sources */,
+				8971BD5726EDD188001AF72C /* AddDesireView.swift in Sources */,
 				89C5400E261EE5050076D635 /* ThankfulTab.swift in Sources */,
 				895C13A02619DEB1006ED61D /* ContentView.swift in Sources */,
 				895C13B42619EE81006ED61D /* Global.swift in Sources */,
@@ -242,6 +249,7 @@
 				89C7DB31261E01CC0036E795 /* Guide.swift in Sources */,
 				89C7DB34261E03930036E795 /* SettingsView.swift in Sources */,
 				89C4ED96261C872B00C953DA /* AddStepView.swift in Sources */,
+				8971BD5426EDD08D001AF72C /* DesiresTab.swift in Sources */,
 				89C7DB2E261E01300036E795 /* GuidsTab.swift in Sources */,
 				89C54014261EF79A0076D635 /* DynamicList.swift in Sources */,
 				89C4ED9A261C877F00C953DA /* LongTextView.swift in Sources */,

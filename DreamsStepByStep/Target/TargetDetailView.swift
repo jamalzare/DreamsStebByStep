@@ -99,8 +99,7 @@ struct StepsList: View {
     @FetchRequest var steps: FetchedResults<Step>
     
     init(stepsCount: Binding<Int>, targetID: UUID) {
-        print(targetID.uuidString)
-        let id = UUID(uuidString: "9025A194-8F1A-4D0B-BAB6-1FEF71CC1540")!
+        
         self._stepsCount = stepsCount
         self._steps = FetchRequest(entity: Step.entity(),
                                    sortDescriptors: [NSSortDescriptor(keyPath: \Step.order, ascending: true)],

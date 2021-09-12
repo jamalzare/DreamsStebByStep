@@ -56,6 +56,8 @@ struct AddStepView: View {
                                 .background(isDone ? Color(hexString: color).opacity(0.20): lightBlack)
                                 .cornerRadius(26)
                                 .lineLimit(1)
+                                .padding(.top, 50)
+                                .padding(.leading, 4)
                         }
                     }
                 }
@@ -163,7 +165,6 @@ struct AddStepView: View {
             step.feeling = feeling
             step.isDone = isDone
             saveMoc()
-            
         }
     }
     

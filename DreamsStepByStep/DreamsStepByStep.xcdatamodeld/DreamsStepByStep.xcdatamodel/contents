@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Desire" representedClassName="Desire" syncable="YES" codeGenerationType="class">
+        <attribute name="color" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="order" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String"/>
+    </entity>
     <entity name="Pain" representedClassName="Pain" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="order" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
@@ -66,5 +73,6 @@
         <element name="Thankful" positionX="-435.863037109375" positionY="265.7540588378906" width="128" height="89"/>
         <element name="Tips" positionX="-283.4314575195312" positionY="314.6236572265625" width="128" height="164"/>
         <element name="Today" positionX="-500.1002197265625" positionY="113.6095581054688" width="128" height="103"/>
+        <element name="Desire" positionX="-297" positionY="-684" width="128" height="104"/>
     </elements>
 </model>
