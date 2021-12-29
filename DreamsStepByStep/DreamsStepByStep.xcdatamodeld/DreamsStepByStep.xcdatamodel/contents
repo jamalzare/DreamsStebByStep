@@ -19,6 +19,14 @@
         <attribute name="order" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="targetID" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="text" attributeType="String"/>
+        <relationship name="target" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Target" inverseName="reason" inverseEntity="Target"/>
+    </entity>
+    <entity name="Sign" representedClassName="Sign" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="order" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="targetID" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="text" attributeType="String"/>
         <relationship name="target" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Target"/>
     </entity>
     <entity name="Step" representedClassName="Step" syncable="YES" codeGenerationType="class">
@@ -30,7 +38,6 @@
         <attribute name="targetID" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="title" attributeType="String"/>
         <relationship name="target" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Target"/>
-        <relationship name="tip" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Tips"/>
     </entity>
     <entity name="Target" representedClassName="Target" syncable="YES" codeGenerationType="class">
         <attribute name="color" attributeType="String"/>
@@ -38,7 +45,8 @@
         <attribute name="order" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String"/>
         <relationship name="pain" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Pain"/>
-        <relationship name="reason" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Reason"/>
+        <relationship name="reason" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Reason" inverseName="target" inverseEntity="Reason"/>
+        <relationship name="signs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sign"/>
         <relationship name="steps" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Step"/>
         <relationship name="tips" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Tips"/>
     </entity>
@@ -53,11 +61,8 @@
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isPinned" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="order" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="stepID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="targetID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="text" attributeType="String"/>
-        <relationship name="step" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Step"/>
-        <relationship name="target" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Target"/>
     </entity>
     <entity name="Today" representedClassName="Today" syncable="YES" codeGenerationType="class">
         <attribute name="color" attributeType="String"/>
@@ -66,13 +71,14 @@
         <attribute name="text" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Pain" positionX="240.6326904296875" positionY="36.34982299804688" width="128" height="104"/>
-        <element name="Reason" positionX="50.3814697265625" positionY="-846.2122497558594" width="128" height="104"/>
-        <element name="Step" positionX="47.552001953125" positionY="255.5453796386719" width="128" height="164"/>
-        <element name="Target" positionX="-262.4407348632812" positionY="-137.2764129638672" width="128" height="149"/>
-        <element name="Thankful" positionX="-435.863037109375" positionY="265.7540588378906" width="128" height="89"/>
-        <element name="Tips" positionX="-283.4314575195312" positionY="314.6236572265625" width="128" height="164"/>
-        <element name="Today" positionX="-500.1002197265625" positionY="113.6095581054688" width="128" height="103"/>
         <element name="Desire" positionX="-297" positionY="-684" width="128" height="104"/>
+        <element name="Pain" positionX="240.6326904296875" positionY="36.34982299804688" width="128" height="104"/>
+        <element name="Reason" positionX="50.3814697265625" positionY="-846.2122497558594" width="128" height="118"/>
+        <element name="Step" positionX="47.552001953125" positionY="255.5453796386719" width="128" height="163"/>
+        <element name="Target" positionX="-262.4407348632812" positionY="-137.2764129638672" width="128" height="178"/>
+        <element name="Thankful" positionX="-435.863037109375" positionY="265.7540588378906" width="128" height="89"/>
+        <element name="Tips" positionX="-283.4314575195312" positionY="314.6236572265625" width="128" height="133"/>
+        <element name="Today" positionX="-500.1002197265625" positionY="113.6095581054688" width="128" height="103"/>
+        <element name="Sign" positionX="-390.6017456054688" positionY="-829.5756225585938" width="128" height="133"/>
     </elements>
 </model>

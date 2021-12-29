@@ -77,19 +77,6 @@ struct AddStepView: View {
                     
                 }.padding(.top).padding(.top)
                 
-                if step != nil{
-                    VStack(spacing: 4){
-                        AppLabel(title: "Tips")
-                        AppSubLabel(title: "What did you learn during this Step: ")
-                        CardView(text: step?.tip?.text ?? "",
-                                 color: Color(hexString: step?.tip?.color ?? color).opacity(0.20),
-                                 metaText: " Tap To Edit").onTapGesture {
-                                    self.activeSheet = .tips
-                                 }
-                        
-                    }.padding(.vertical).padding(.top)
-                }
-                
                 HStack{
                     Spacer()
                     SubmitButton { self.submit() }
@@ -108,7 +95,6 @@ struct AddStepView: View {
                 self.title = step.title ?? ""
                 self.color = step.color ?? ""
                 self.feeling = step.feeling ?? ""
-                self.tips = step.tip?.text ?? ""
                 self.isDone = step.isDone
             }
         }
@@ -117,13 +103,6 @@ struct AddStepView: View {
                 LongTextEditeView(title: "Edit your Feeling here",
                                   bindedText: self.$feeling,
                                   editMode: .constant(nil))
-            } else {
-                                AddTipsView(target: self.target,
-                                            step: self.step,
-                                            tip: self.step?.tip,
-                                            showPining: true)
-                                    .environment(\.managedObjectContext, self.moc)
-                
             }
         }
     }
@@ -170,9 +149,6 @@ struct AddStepView: View {
     
     func delete(){
         if let step = step {
-            if let tip = step.tip{
-                moc.delete(tip)
-            }
             moc.delete(step)
             saveMoc()
         }

@@ -19,6 +19,7 @@ struct TargetDetailView: View {
     @State private var reasonsCount: Int = 0
     @State private var painsCount: Int = 0
     @State private var tipsCount: Int = 0
+    @State private var signsCount: Int = 0
     @State private var showEditView: Bool = false
     
     var body: some View {
@@ -27,22 +28,23 @@ struct TargetDetailView: View {
             AppJustForSpacing()
             TargetDetailHeader(title: "\(target.title!)")
             
-            PagerView(pageCount: 4, currentIndex: $currentPage){
+            PagerView(pageCount: 5, currentIndex: $currentPage){
                 
                 ReasonsList(reasonsCount: $reasonsCount, targetID: target.id!)
                 PainList(painsCount: $painsCount, targetID: target.id!)
                 StepsList(stepsCount: $stepsCount, targetID: target.id!)
                 TipsList(tipsCount: $tipsCount, targetID: target.id!)
-               // TestList(stepsCount: $stepsCount, targetID: target.id!)
+                SignsList(count: $signsCount, targetID: target.id!)
             }
             
             HStack(spacing:4){
                 
-                AppTabButtonB(title: "Reasons", currentTab: $currentPage, index: 0, count: target.reason?.count)
+                AppTabButton(title: "Reasons", currentTab: $currentPage, index: 0, count: $reasonsCount)
                 AppTabButton(title: "Pains", currentTab: $currentPage, index: 1, count: $painsCount)
                 AppTabButton(title: "Steps", currentTab: $currentPage, index: 2, count: $stepsCount)
                 AppTabButton(title: "Tips", currentTab: $currentPage, index: 3, count: $tipsCount)
-             //   AppTabButton(title: "Test", currentTab: $currentPage, index: 4, count: $stepsCount)
+                AppTabButton(title: "Signs", currentTab: $currentPage, index: 4, count: $signsCount)
+             
             }
             .padding(.bottom, 4)
             
@@ -439,6 +441,61 @@ struct TipsList: View {
             AddTipsView(target: self.target, tip: self.selected,
                         onDismiss: { self.tipsCount = self.tips.count},
                         showPining: true)
+                .environment(\.managedObjectContext, self.moc)
+        }
+        
+    }
+}
+
+struct SignsList: View {
+    
+    @EnvironmentObject var target: Target
+    @Environment(\.managedObjectContext) var moc
+    @Binding var count: Int
+    @State private var showAddView: Bool = false
+    @State private var selected: Sign?
+    
+    @FetchRequest var signs: FetchedResults<Sign>
+    
+    init(count: Binding<Int>, targetID: UUID) {
+        
+        self._count = count
+        self._signs = FetchRequest(entity: Sign.entity(),
+                                  sortDescriptors: [NSSortDescriptor(keyPath: \Tips.order, ascending: false)],
+                                  predicate: NSPredicate(format: "targetID == %@", targetID as CVarArg),
+                                  animation: .easeInOut)
+    }
+    
+    private let helpText = "This section shows you the TIPS for your actions and Steps. You can also write down the Tips, Understandings, Points, Notes that you have learned and they need to be reviewed daily and they will help you. To do this TAP HERE or TAP On Plus Button (+)."
+    
+    
+    var body: some View {
+        
+        VStack{
+            DynamicList {
+                ForEach(signs, id:\.self) { sign in
+                    VStack{
+                        CardView(text: sign.text!, color: Color(hexString: sign.color!).opacity(0.20)).onTapGesture {
+                            self.selected = sign
+                            self.showAddView = true
+                        }
+                    }
+                }
+                HelpView(text: helpText) {}
+                
+            }.onAppear{
+                self.count = self.signs.count
+            }
+            
+            AddButton {
+                self.selected = nil
+                self.showAddView = true
+            }
+        }
+        
+        .sheet(isPresented: $showAddView){
+            AddSignView(target: self.target, sign: self.selected,
+                        onDismiss: { self.count = self.signs.count })
                 .environment(\.managedObjectContext, self.moc)
         }
         
